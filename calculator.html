@@ -1484,6 +1484,47 @@ const gateDone = document.getElementById('gate-done');
 const gateDoneEmail = document.getElementById('gate-done-email');
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Google Sheets endpoint (same Apps Script web app the fit quiz uses).
+// Routed by the `type` field into a 'Sales Calculator' tab.
+const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx1KRL55VKNm7gPk8vbnP1LhzSlLdLHxujrMENTPp1HdMoFDvFNckke-mZ7UhQ2gcaDtw/exec';
+
+function buildCalcPayload(email, phone) {
+  const labelFor = (idx) => {
+    const Q = QUESTIONS[idx];
+    if (!Q || !Q.opts) return '';
+    const a = qAnswers[idx];
+    if (Q.multi && Array.isArray(a)) {
+      return a.map(k => {
+        const o = Q.opts.find(x => x.k === k);
+        return o ? (k + ': ' + o.t) : k;
+      }).join(' · ');
+    }
+    const opt = Q.opts.find(o => o.k === a);
+    return opt ? (a + ': ' + opt.t) : (a || '');
+  };
+  const m = calcMetrics();
+  const diag = pickDiagnosis(m);
+  return {
+    type: 'sales_calculator',
+    q1_setup:           labelFor(0),
+    q2_founder_hours:   labelFor(1),
+    q3_leads_falloff:   labelFor(2),
+    q4_cycle:           labelFor(3),
+    q5_deals_per_month: labelFor(4),
+    q6_ticket:          labelFor(5),
+    q7_channels:        labelFor(6),
+    q8_paid_spend:      labelFor(7),
+    q9_monthly_leads:   labelFor(8),
+    phone: phone,
+    email: email,
+    roi: m.roi.toFixed(2),
+    monthly_revenue: Math.round(m.monthlyRev),
+    total_cost:      Math.round(m.totalCost),
+    cost_per_deal:   Math.round(m.costPerDeal),
+    diagnosis: diag,
+  };
+}
+
 function submitGate() {
   const email = (gateEmail.value || '').trim();
   const phone = (gatePhone.value || '').trim();
@@ -1497,6 +1538,15 @@ function submitGate() {
     gatePhone.focus();
     return;
   }
+  // Background POST to Google Sheets · errors swallowed so a slow or
+  // down endpoint never blocks the 'Got it' UX.
+  try {
+    fetch(SHEET_ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify(buildCalcPayload(email, phone)),
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    }).catch(() => {});
+  } catch (_) { /* ignore */ }
   gateDoneEmail.textContent = email;
   gateForm.style.display = 'none';
   gateDone.style.display = 'block';

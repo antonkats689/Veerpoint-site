@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/quiz",             "destination": "/index.html" },
+    { "source": "/fit-quiz",         "destination": "/index.html" },
+    { "source": "/sales-diagnostic", "destination": "/index.html" },
+    { "source": "/calculator-quiz",  "destination": "/index.html" }
+  ]
+}

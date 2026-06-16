@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2026061605">
+<link rel="stylesheet" href="style.css?v=2026061606">
 
 <!-- ─────────── ANALYTICS / TRACKING PIXELS ───────────
      Drop real measurement IDs into VP_TRACKING below and the snippets
@@ -3726,6 +3726,49 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
 })();
 </script>
 
+<!-- Deeplink auto-opener · lets paid-campaign URLs jump straight
+     into a quiz modal instead of dropping users on the home page.
+     Supported entry points:
+       · /quiz                     → fit-quiz popup
+       · /fit-quiz                 → fit-quiz popup
+       · /sales-diagnostic         → calculator popup
+       · /calculator-quiz          → calculator popup
+       · ?open=quiz / ?open=calc   → either, query form
+       · #quiz / #calc             → either, hash form
+     Clean URLs are served by vercel.json rewrites (the browser URL
+     stays /quiz while Vercel serves index.html). Hash + query forms
+     work on any static host. Both popups stay reachable from the
+     home-page buttons exactly as before. -->
+<script>
+(function () {
+  function deeplink() {
+    const path  = (location.pathname || '').toLowerCase().replace(/\/+$/, '');
+    const hash  = (location.hash || '').toLowerCase().replace(/^#/, '');
+    const param = (new URLSearchParams(location.search)).get('open') || '';
+    const key   = hash || param;
+    const isQuiz = path === '/quiz' || path === '/fit-quiz'
+                || key  === 'quiz' || key  === 'fit-quiz' || key === 'fit';
+    const isCalc = path === '/sales-diagnostic' || path === '/calculator-quiz'
+                || key  === 'calc' || key  === 'calculator' || key === 'diagnostic';
+    if (isQuiz && typeof window.vpQuizOpen === 'function') {
+      // Small delay so the modal scaffolding from the page's inline
+      // scripts is definitely wired up before we ask it to open.
+      setTimeout(window.vpQuizOpen, 30);
+    } else if (isCalc && typeof window.vpCalcOpen === 'function') {
+      setTimeout(window.vpCalcOpen, 30);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', deeplink);
+  } else {
+    deeplink();
+  }
+  // Re-fire on hash changes so #quiz / #calc links from within the
+  // site also open the right modal without a full reload.
+  window.addEventListener('hashchange', deeplink);
+})();
+</script>
+
 <!-- D3 + topojson for the real Europe map.
      world-atlas TopoJSON is public-domain Natural Earth derived data
      (≈80 KB at 110m scale). Loaded async so it doesn't block paint;
@@ -3733,7 +3776,7 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
      back to the hand-traced SVG path if either CDN is unreachable. -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3" defer></script>
-<script src="app.js?v=2026061605" defer></script>
+<script src="app.js?v=2026061606" defer></script>
 
 </body>
 </html>

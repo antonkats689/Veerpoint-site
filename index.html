@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2026061603">
+<link rel="stylesheet" href="style.css?v=2026061604">
 
 <!-- ─────────── ANALYTICS / TRACKING PIXELS ───────────
      Drop real measurement IDs into VP_TRACKING below and the snippets
@@ -379,7 +379,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   gap: 72px;
   width: max-content;
   padding-right: 72px;
-  animation: vp-marquee 38s linear infinite;
+  animation: vp-marquee 22s linear infinite;
   /* translate3d nudges iOS Safari into GPU-compositing this layer,
      which avoids the 'frozen marquee on iPhone' bug that pure
      translateX(%) on a max-content flex parent can trip into. */
@@ -442,7 +442,7 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 @media (max-width: 760px) {
   .logos-band { padding: 36px 0 40px; }
   .logos-eyebrow { font-size: 10px; margin-bottom: 18px; }
-  .logos-track { gap: 44px; padding-right: 44px; animation-duration: 28s; }
+  .logos-track { gap: 44px; padding-right: 44px; animation-duration: 16s; }
   .logo-item { font-size: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2665,20 +2665,14 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
     <p class="logos-eyebrow"><span class="dot"></span>Products our team has sold</p>
     <div class="logos-marquee" aria-label="Companies our team has sold for">
       <div class="logos-track">
-        <span class="logo-item"><img class="logo-img" src="https://logo.clearbit.com/revolut.com" alt="Revolut" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Revolut</span></span>
-        <span class="logo-item"><img class="logo-img" src="https://logo.clearbit.com/google.com" alt="Google Cloud" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Google Cloud</span></span>
-        <span class="logo-item"><img class="logo-img" src="https://logo.clearbit.com/stripe.com" alt="Stripe" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Stripe</span></span>
-        <span class="logo-item"><img class="logo-img" src="https://logo.clearbit.com/corgi.co.uk" alt="Corgi Group" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Corgi Group</span></span>
-        <span class="logo-item"><img class="logo-img" src="https://logo.clearbit.com/guava.io" alt="Guava" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Guava</span></span>
-        <span class="logo-item"><img class="logo-img" src="https://logo.clearbit.com/ibm.com" alt="IBM" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">IBM</span></span>
-        <span class="logo-item"><img class="logo-img" src="https://logo.clearbit.com/exact.com" alt="Exact Software" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Exact Software</span></span>
-        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="https://logo.clearbit.com/revolut.com" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Revolut</span></span>
-        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="https://logo.clearbit.com/google.com" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Google Cloud</span></span>
-        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="https://logo.clearbit.com/stripe.com" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Stripe</span></span>
-        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="https://logo.clearbit.com/corgi.co.uk" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Corgi Group</span></span>
-        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="https://logo.clearbit.com/guava.io" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Guava</span></span>
-        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="https://logo.clearbit.com/ibm.com" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">IBM</span></span>
-        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="https://logo.clearbit.com/exact.com" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fail')"><span class="logo-name">Exact Software</span></span>
+        <span class="logo-item"><img class="logo-img" src="img/logos/revolut.png" alt="Revolut" loading="lazy"></span>
+        <span class="logo-item"><img class="logo-img" src="img/logos/google-cloud.jpeg" alt="Google Cloud" loading="lazy"></span>
+        <span class="logo-item"><img class="logo-img" src="img/logos/stripe.png" alt="Stripe" loading="lazy"></span>
+        <span class="logo-item"><img class="logo-img" src="img/logos/revolut-business.svg" alt="Revolut Business" loading="lazy"></span>
+        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="img/logos/revolut.png" alt="" loading="lazy"></span>
+        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="img/logos/google-cloud.jpeg" alt="" loading="lazy"></span>
+        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="img/logos/stripe.png" alt="" loading="lazy"></span>
+        <span class="logo-item" aria-hidden="true"><img class="logo-img" src="img/logos/revolut-business.svg" alt="" loading="lazy"></span>
       </div>
     </div>
   </div>
@@ -3725,7 +3719,7 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
      back to the hand-traced SVG path if either CDN is unreachable. -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3" defer></script>
-<script src="app.js?v=2026061603" defer></script>
+<script src="app.js?v=2026061604" defer></script>
 
 </body>
 </html>

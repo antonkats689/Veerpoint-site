@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2026061602">
+<link rel="stylesheet" href="style.css?v=2026061603">
 
 <!-- ─────────── ANALYTICS / TRACKING PIXELS ───────────
      Drop real measurement IDs into VP_TRACKING below and the snippets
@@ -1246,6 +1246,12 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
     max-height: 100dvh;
     border-radius: 0;
   }
+  /* Suppress the bottom-sheet drag-handle ::before for the iframe
+     modal — it cascades from the generic .modal-card rule below and
+     shows up as a phantom horizontal bar over the iframe contents.
+     The calculator is a full-screen takeover, not a sheet, so the
+     handle doesn't belong here. */
+  .modal-card.modal-card-iframe::before { display: none; }
 }
 
 /* Mobile: present the quiz as a bottom sheet instead of a centered card.
@@ -3719,7 +3725,7 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
      back to the hand-traced SVG path if either CDN is unreachable. -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3" defer></script>
-<script src="app.js?v=2026061602" defer></script>
+<script src="app.js?v=2026061603" defer></script>
 
 </body>
 </html>

@@ -999,9 +999,21 @@ body.embed .nav,
 body.embed .page-hero,
 body.embed footer,
 body.embed .footnote { display: none !important; }
-body.embed .calc.calc-diagnostic { max-width: none; margin: 0; padding: 6px 0 18px; }
+/* Top padding leaves room for the modal's absolute-positioned close
+   button (top: 18px right: 20px, ~32px wide) PLUS the iOS notch /
+   dynamic-island safe-area. Without it the cd-step header collides
+   with the close button on narrow phones. */
+body.embed .calc.calc-diagnostic {
+  max-width: none;
+  margin: 0;
+  padding: calc(12px + env(safe-area-inset-top)) 0 18px;
+}
 body.embed .cd-quiz,
 body.embed .cd-result { border-left: 0; border-right: 0; border-radius: 0; margin-bottom: 0; }
+/* Push the cd-step header inward on the right so 'QUESTION 1 OF 9'
+   and the progress bar don't run under the close button when the
+   modal is at narrow widths. */
+body.embed .cd-step { padding-right: 48px; }
 body.embed .gate.gate-plan { border-radius: 0; }
 </style>
 </head>

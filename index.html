@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2026061604">
+<link rel="stylesheet" href="style.css?v=2026061605">
 
 <!-- ─────────── ANALYTICS / TRACKING PIXELS ───────────
      Drop real measurement IDs into VP_TRACKING below and the snippets
@@ -375,16 +375,27 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 }
 .logos-track {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 72px;
   width: max-content;
   padding-right: 72px;
-  animation: vp-marquee 22s linear infinite;
-  /* translate3d nudges iOS Safari into GPU-compositing this layer,
-     which avoids the 'frozen marquee on iPhone' bug that pure
-     translateX(%) on a max-content flex parent can trip into. */
+  /* Longhand animation properties · the shorthand 'animation:' here +
+     a longhand 'animation-duration:' in the mobile media query below
+     was tripping a Safari/iOS bug that reset animation-name to none
+     on mobile, leaving the track with a duration but no actual
+     animation. Spelling each property out individually keeps the
+     name pinned through any later override. */
+  animation-name: vp-marquee;
+  animation-duration: 22s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  /* GPU hint for iOS · translate3d forces compositing without
+     will-change, which on Safari can cause more layer thrashing
+     than it solves. */
   transform: translate3d(0, 0, 0);
-  will-change: transform;
+  backface-visibility: hidden;
 }
 /* :hover pause is desktop-only. On iOS, tapping near the strip
    leaves a phantom hover state that pauses the animation and never
@@ -445,9 +456,12 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   .logos-track { gap: 44px; padding-right: 44px; animation-duration: 16s; }
   .logo-item { font-size: 20px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .logos-track { animation: none; }
-}
+/* prefers-reduced-motion override removed for the marquee · users
+   with Reduce Motion on in iOS Accessibility settings were seeing a
+   completely stationary band, which the user explicitly wanted
+   bypassed so the strip always reads as a 'live' element. Other
+   page animations still respect the system preference where it
+   matters more (scroll-driven curves, FLOOR feed, etc.). */
 
 /* ───────── Six-month progression · scroll-driven curve ─────────
    Small concise growth path with three milestone dots. JS reads
@@ -3719,7 +3733,7 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
      back to the hand-traced SVG path if either CDN is unreachable. -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3" defer></script>
-<script src="app.js?v=2026061604" defer></script>
+<script src="app.js?v=2026061605" defer></script>
 
 </body>
 </html>

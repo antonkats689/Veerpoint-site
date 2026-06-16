@@ -1484,9 +1484,11 @@ const gateDone = document.getElementById('gate-done');
 const gateDoneEmail = document.getElementById('gate-done-email');
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Google Sheets endpoint (same Apps Script web app the fit quiz uses).
-// Routed by the `type` field into a 'Sales Calculator' tab.
-const SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwoONbq5hDdUM0P_NMLA8ZW1vtUWsu78lcz_fktzLn-21DkmMeCmFE_Sszi38PwkB2k/exec';
+// Lead-capture endpoint · Formspree (same form the fit quiz uses).
+// Both quizzes hit the same inbox; routed downstream by the `type`
+// field in the payload. See index.html for the rationale behind the
+// switch away from Apps Script.
+const LEAD_ENDPOINT = 'https://formspree.io/f/xgobqzjv';
 
 function buildCalcPayload(email, phone) {
   const labelFor = (idx) => {
@@ -1538,13 +1540,17 @@ function submitGate() {
     gatePhone.focus();
     return;
   }
-  // Background POST to Google Sheets · errors swallowed so a slow or
-  // down endpoint never blocks the 'Got it' UX.
+  // Background POST · errors swallowed so a slow or down endpoint
+  // never blocks the 'Got it' UX. Accept: application/json keeps
+  // Formspree from redirecting us to its HTML Thank-You page.
   try {
-    fetch(SHEET_ENDPOINT, {
+    fetch(LEAD_ENDPOINT, {
       method: 'POST',
       body: JSON.stringify(buildCalcPayload(email, phone)),
-      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept':       'application/json',
+      },
     }).catch(() => {});
   } catch (_) { /* ignore */ }
   gateDoneEmail.textContent = email;

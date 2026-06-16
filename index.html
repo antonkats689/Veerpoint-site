@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2026061601">
+<link rel="stylesheet" href="style.css?v=2026061602">
 
 <!-- ─────────── ANALYTICS / TRACKING PIXELS ───────────
      Drop real measurement IDs into VP_TRACKING below and the snippets
@@ -1237,8 +1237,13 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
 }
 @media (max-width: 760px) {
   .modal-card.modal-card-iframe {
+    /* dvh = dynamic viewport height · excludes iOS Safari's address
+       bar so the iframe doesn't overflow into invisible space. vh
+       fallback for older browsers (<iOS 15.4 / Android <108). */
     height: 100vh;
+    height: 100dvh;
     max-height: 100vh;
+    max-height: 100dvh;
     border-radius: 0;
   }
 }
@@ -1254,9 +1259,15 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
   .modal-card {
     max-width: none;
     width: 100%;
+    /* dvh fixes the 'top of modal hidden behind iOS Safari address
+       bar' bug. The bottom-sheet is anchored to viewport_bottom and
+       extends UP by max-height — with plain vh, the address bar
+       height pushes the top of the card off-screen. dvh excludes
+       chrome, keeping the top visible. */
     max-height: 92vh;
+    max-height: 92dvh;
     border-radius: 18px 18px 0 0;
-    padding: 28px 22px calc(24px + env(safe-area-inset-bottom));
+    padding: calc(28px + env(safe-area-inset-top)) 22px calc(24px + env(safe-area-inset-bottom));
     transform: translateY(100%);
     transition: transform 0.32s cubic-bezier(0.22, 0.9, 0.32, 1);
     box-shadow: 0 -16px 48px rgba(28, 28, 30, 0.28);
@@ -1271,6 +1282,9 @@ button { font: inherit; cursor: pointer; background: none; border: none; color: 
     background: var(--vp-border-strong);
     margin: -6px auto 18px;
   }
+  /* Close button sits in the top-right · push the question step
+     label a bit to the left so they don't overlap on narrow phones. */
+  .modal-step { padding-right: 44px; }
 }
 .modal-close {
   position: absolute;
@@ -3705,7 +3719,7 @@ footer .wrap { display: flex; justify-content: space-between; align-items: cente
      back to the hand-traced SVG path if either CDN is unreachable. -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3" defer></script>
-<script src="app.js?v=2026061601" defer></script>
+<script src="app.js?v=2026061602" defer></script>
 
 </body>
 </html>

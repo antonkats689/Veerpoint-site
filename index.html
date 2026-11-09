@@ -4,49 +4,163 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Veerpoint. B2B sales, without the hiring process</title>
-<meta name="description" content="Veerpoint puts an experienced B2B seller inside your team to build what's missing in your sales and close the deals.">
+<meta name="description" content="Veerpoint puts an experienced B2B seller inside your team. They build what's missing in your sales and close the deals themselves.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<style>
-@font-face{font-family:"Inter Tight";font-weight:600;font-display:swap;src:url(/fonts/inter-tight-latin-600-normal.woff2) format("woff2")}
-@font-face{font-family:"Inter Tight";font-weight:700;font-display:swap;src:url(/fonts/inter-tight-latin-700-normal.woff2) format("woff2")}
-@font-face{font-family:"Inter";font-weight:400;font-display:swap;src:url(/fonts/inter-latin-400-normal.woff2) format("woff2")}
-@font-face{font-family:"Inter";font-weight:500;font-display:swap;src:url(/fonts/inter-latin-500-normal.woff2) format("woff2")}
-:root{--page:#FAFAF9;--ink:#1C1C1E;--ink-soft:#48484A;--muted:#6E6E73;--line:#E5E5E5;--stop:#A04022;--stop-dark:#8A361C}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;background:var(--page);color:var(--ink);font:400 1.0625rem/1.6 "Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{width:100%;max-width:72rem;margin:0 auto;padding:0 clamp(1rem,5vw,3rem)}
-header{padding-top:clamp(1.5rem,4vw,2.5rem)}
-.wm{font:600 1.375rem/1 "Inter Tight",sans-serif;letter-spacing:-.05em;color:var(--ink);text-decoration:none}
-.wm span,.stop{color:var(--stop)}
-main{flex:1;display:flex;align-items:center;padding:clamp(3rem,10vh,7rem) 0}
-h1{font:700 clamp(2.6rem,8.2vw,6.5rem)/.98 "Inter Tight",sans-serif;letter-spacing:-.03em;max-width:11ch;text-wrap:balance}
-.lede{margin-top:clamp(1.5rem,3vw,2.25rem);max-width:36rem;font-size:clamp(1.0625rem,1.6vw,1.25rem);color:var(--ink-soft)}
-.cta{display:inline-block;margin-top:clamp(2rem,4vw,2.75rem);padding:.95rem 1.6rem;background:var(--ink);color:var(--page);font:500 1rem/1 "Inter",sans-serif;text-decoration:none;border-radius:2px;transition:background .15s}
-.cta:hover{background:var(--stop)}
-.cta:focus-visible,.wm:focus-visible,footer a:focus-visible{outline:2px solid var(--stop);outline-offset:3px}
-.note{margin-top:1rem;font-size:.9375rem;color:var(--muted)}
-footer{border-top:1px solid var(--line);padding:1.25rem 0 1.5rem;font-size:.875rem;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 2rem;justify-content:space-between}
-footer a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid var(--line)}
-footer a:hover{color:var(--stop);border-color:var(--stop)}
-/* the one moment: the full stop lands after the headline */
-@media (prefers-reduced-motion:no-preference){
- h1 .stop{display:inline-block;animation:land .5s cubic-bezier(.2,.9,.3,1.3) .45s both}
- @keyframes land{from{opacity:0;transform:translateY(-.5em) scale(.4)}to{opacity:1;transform:none}}
-}
-</style>
+<link rel="preload" href="/fonts/inter-tight-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/style.css?v=3">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<header><div class="wrap"><a class="wm" href="/" aria-label="Veerpoint home">Veerpoint<span>.</span></a></div></header>
-<main><div class="wrap">
-<h1>B2B sales, without the hiring process<span class="stop">.</span></h1>
-<p class="lede">Veerpoint puts an experienced B2B seller inside your team. They build what's missing in your sales and close the deals themselves.</p>
-<a class="cta" href="mailto:hello@veerpoint.io?subject=Book%20a%20call">Book a call</a>
-<p class="note">The full site is on its way.</p>
-</div></main>
-<footer><div class="wrap"><span>Veerpoint</span><a href="mailto:hello@veerpoint.io">hello@veerpoint.io</a></div></footer>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="wordmark" aria-label="Veerpoint home">Veerpoint<span class="stop">.</span></a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#questions">Questions</a>
+      <a href="#book" class="btn btn-ink btn-sm">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <h1>B2B sales, without the <span class="under">hiring process</span><span class="stop">.</span></h1>
+    <p class="lede">Veerpoint puts an experienced B2B seller inside your team. They build what's missing in your sales and close the deals themselves.</p>
+    <a href="#book" class="btn btn-accent">Book a call</a>
+  </div>
+</section>
+
+<section class="map-sec dark" aria-labelledby="map-h">
+  <div class="wrap map-grid">
+    <h2 id="map-h">Buyers across Europe are signing with someone. Make sure it's you<span class="stop">.</span></h2>
+    <svg class="map-svg" viewBox="0 0 760 600" role="img" aria-label="Map of Europe">
+      <defs><radialGradient id="fade" cx="50%" cy="50%" r="50%"><stop offset="72%" stop-color="#fff"/><stop offset="100%" stop-color="#000"/></radialGradient><pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.25" fill="#F4F2EE"/></pattern><radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#A04022" stop-opacity=".28"/><stop offset="100%" stop-color="#A04022" stop-opacity="0"/></radialGradient><mask id="fadeMask"><rect width="760" height="600" fill="url(#fade)"/></mask></defs><g mask="url(#fadeMask)"><circle cx="330" cy="330" r="300" fill="url(#glow)"/><g class="grat"><line x1="0" y1="100" x2="760" y2="100"/><line x1="0" y1="200" x2="760" y2="200"/><line x1="0" y1="300" x2="760" y2="300"/><line x1="0" y1="400" x2="760" y2="400"/><line x1="0" y1="500" x2="760" y2="500"/><line x1="100" y1="0" x2="100" y2="600"/><line x1="200" y1="0" x2="200" y2="600"/><line x1="300" y1="0" x2="300" y2="600"/><line x1="400" y1="0" x2="400" y2="600"/><line x1="500" y1="0" x2="500" y2="600"/><line x1="600" y1="0" x2="600" y2="600"/><line x1="700" y1="0" x2="700" y2="600"/></g>
+      <g class="land"><path d="M476,242L459,244L448,244L449,237L461,231L470,232L475,234L474,238ZM760,182L743,184L731,192L722,216L726,227L713,224L714,243L718,244L719,257L731,262L738,258L749,264L752,271L757,271L758,281L750,288L748,308L760,314L760,347L760,347L757,347L751,343L740,345L734,350L731,348L714,348L698,352L688,354L687,356L669,349L655,348L643,343L650,338L654,322L646,319L658,307L657,304L649,310L647,304L650,298L659,293L659,288L653,281L654,272L652,267L637,268L632,270L623,266L617,271L604,270L603,267L597,262L590,263L588,259L589,255L581,249L572,253L569,253L568,257L564,258L559,249L556,244L557,243L564,241L567,237L563,234L556,233L556,230L552,228L544,220L545,215L542,209L533,207L529,210L527,207L517,205L512,197L510,190L505,187L508,182L502,168L506,158L504,156L511,146L501,140L512,117L516,107L517,98L504,91L504,80L495,70L496,56L485,41L487,28L476,20L474,8L479,6L484,0L531,0L531,0L545,4L552,10L557,19L554,30L546,37L515,35L511,39L524,47L527,53L533,68L542,70L549,72L547,65L541,60L543,53L562,56L565,50L557,41L564,21L570,20L578,22L576,11L568,5L567,0L578,0L578,0L580,4L587,7L594,0L760,0ZM607,343L608,339L617,340L620,339L622,342L624,341L624,343L631,345L641,340L641,346L630,352L619,366L612,364L612,357L599,356L600,352L609,344Z"/><path d="M484,0L479,6L474,8L474,0L484,0ZM458,0L458,11L454,19L447,17L440,19L432,11L429,16L426,17L426,27L415,26L414,35L408,35L405,47L400,65L390,87L393,92L391,99L384,99L380,113L380,134L385,142L382,160L376,170L372,179L367,170L351,187L340,190L329,181L328,165L329,129L336,119L356,108L370,92L382,70L397,39L406,27L420,5L427,0L458,0Z"/><path d="M322,321L326,326L341,329L335,340L333,350L330,353L325,351L325,355L317,363L316,370L322,368L325,375L324,379L327,385L323,390L325,402L330,404L329,411L318,419L296,413L279,416L277,425L263,425L251,416L247,419L227,408L224,402L232,394L239,364L232,346L226,337L211,327L213,316L227,316L242,323L243,305L251,314L275,306L280,294L289,292L290,297L294,298L298,305L304,313L309,312L317,320L319,321ZM343,428L350,423L352,436L347,448L342,445L340,434Z"/><path d="M698,533L697,539L692,539L693,550L697,550L694,554L695,558L700,554L703,560L704,587L702,583L687,563L689,556L688,556L689,547L688,535L688,530L688,530L693,529L693,526L696,524L699,530L698,533Z"/><path d="M696,524L693,526L693,529L688,530L689,516L691,503L691,503L697,501L701,507L697,515Z"/><path d="M340,600L339,596L331,589L331,585L321,574L320,562L329,554L333,541L332,525L335,517L349,512L357,514L357,522L368,516L369,519L362,527L362,534L366,538L364,552L355,560L358,569L365,569L368,577L373,580L372,592L365,597L363,600L340,600Z"/><path d="M138,600L143,595L161,592L164,580L172,581L180,576L198,577L202,571L199,567L197,549L198,540L196,529L210,522L224,522L233,517L246,514L268,514L289,515L295,518L307,513L321,514L326,518L335,517L332,525L333,541L329,554L320,562L321,574L331,585L331,589L339,596L340,600L138,600Z"/><path d="M697,539L698,533L715,534L733,509L746,525L744,528L721,546L740,556L737,561L736,567L727,573L726,579L722,586L705,589L704,587L703,560L700,554L701,549Z"/><path d="M698,533L698,533L699,530L696,524L697,515L701,507L697,501L691,503L686,491L687,484L689,480L691,475L689,467L694,468L705,459L713,460L723,456L734,444L740,442L752,434L750,446L746,452L751,462L755,482L733,509L715,534Z"/><path d="M760,385L757,384L747,384L745,377L741,372L754,363L758,366L760,366L760,385Z"/><path d="M372,179L376,170L382,160L385,142L380,134L380,113L384,99L391,99L393,92L390,87L400,65L405,47L408,35L414,35L415,26L426,27L426,17L429,16L438,23L449,32L453,56L456,62L446,68L441,80L443,89L434,103L422,117L418,140L424,150L432,158L427,176L419,180L417,206L413,221L403,220L398,232L388,233L385,219L378,201Z"/><path d="M517,205L527,207L529,210L533,207L542,209L545,215L544,220L552,228L556,230L556,233L563,234L567,237L564,241L557,243L556,244L559,249L564,258L556,261L555,265L556,272L552,272L544,275L540,272L538,275L533,274L526,275L515,274L505,274L498,276L494,281L489,282L488,276L484,269L489,265L488,259L485,254L483,247L492,246L500,238L501,229L507,223L505,217L509,213Z"/><path d="M564,258L568,257L569,253L572,253L581,249L589,255L588,259L590,263L597,262L603,267L604,270L617,271L623,266L632,270L637,268L652,267L654,272L653,281L659,288L659,293L650,298L647,304L649,310L642,314L637,321L628,325L621,334L624,341L622,342L620,339L617,340L608,339L607,343L605,342L588,343L585,338L577,342L575,351L570,364L564,363L560,367L554,365L557,363L557,357L559,352L558,349L560,347L561,349L567,348L570,346L567,345L568,343L563,340L560,334L556,333L555,327L550,324L545,325L537,322L531,325L529,327L525,328L523,332L516,335L513,338L507,335L501,336L494,336L490,340L489,336L483,332L484,326L486,322L488,322L485,316L492,302L496,299L496,295L489,282L494,281L498,276L505,274L515,274L526,275L533,274L538,275L540,272L544,275L552,272L556,272L555,265L556,261Z"/><path d="M483,247L485,254L488,259L489,265L484,269L488,276L489,282L496,295L496,299L492,302L485,316L488,322L486,322L476,317L469,320L464,319L458,323L453,318L449,321L448,320L443,313L436,312L434,308L428,306L426,311L421,308L421,303L414,302L409,298L405,288L405,283L403,275L399,269L402,265L399,257L405,253L419,245L430,239L439,241L440,244L448,244L459,244L476,242L480,243Z"/><path d="M431,342L431,349L425,349L427,352L424,362L422,365L413,366L408,370L399,369L384,365L382,360L371,362L370,365L364,363L358,362L354,359L355,356L355,353L358,352L363,357L365,353L374,353L381,351L386,351L390,354L391,352L389,342L393,340L396,332L404,337L409,331L413,329L421,334L426,333L430,335L430,337Z"/><path d="M483,332L489,336L490,340L484,344L481,355L476,366L468,370L461,370L453,375L450,378L440,375L432,369L428,368L426,363L424,362L427,352L425,349L431,349L431,342L437,346L441,347L449,345L450,342L454,341L458,338L460,339L464,336L466,332L469,331L481,334Z"/><path d="M529,327L531,325L537,322L545,325L550,324L555,327L556,333L560,334L563,340L568,343L567,345L570,346L567,348L561,349L560,347L558,349L559,352L557,357L557,363L554,365L551,359L551,352L549,345L541,338L536,332L532,328Z"/><path d="M554,365L560,367L564,363L570,364L571,368L566,373L563,372L564,391L557,391L548,387L536,393L531,398L515,400L506,399L502,401L498,395L496,393L498,390L495,389L492,393L485,389L483,383L476,380L474,375L468,370L476,366L481,355L484,344L490,340L494,336L501,336L507,335L513,338L516,335L523,332L525,328L529,327L532,328L536,332L541,338L549,345L551,352L551,359Z"/><path d="M505,217L507,223L501,229L500,238L492,246L483,247L480,243L476,242L474,238L475,234L470,232L461,231L457,218L467,212L481,211L489,208L491,211L495,211Z"/><path d="M505,187L510,190L512,197L517,205L509,213L505,217L495,211L491,211L489,208L481,211L467,212L457,218L456,206L459,196L466,190L474,200L481,199L480,187L487,183L491,184L499,189Z"/><path d="M504,156L506,158L502,168L508,182L505,187L499,189L491,184L487,183L480,187L480,178L477,180L471,176L469,167L478,161L488,157L496,158Z"/><path d="M399,257L402,265L399,269L403,275L405,283L405,288L409,298L405,300L402,298L400,301L393,304L389,308L382,311L384,316L385,322L390,326L396,332L393,340L389,342L391,352L390,354L386,351L381,351L374,353L365,353L363,357L358,352L355,353L344,348L342,351L333,350L335,340L341,329L326,326L322,321L323,315L321,311L323,301L323,285L329,285L332,279L335,266L334,260L336,257L343,257L345,260L351,253L349,247L349,238L356,241L362,239L362,245L371,248L370,254L380,251L385,247L395,253Z"/><path d="M498,395L502,401L506,399L515,400L531,398L536,393L548,387L557,391L564,391L560,399L558,410L564,418L554,418L543,426L545,433L534,437L525,433L517,439L508,440L506,429L499,425L501,423L499,421L500,416L504,411L498,405L496,399Z"/><path d="M566,526L565,531L547,536L546,533L530,533L531,526L539,530L549,527L559,527L559,530ZM508,440L517,439L525,433L534,437L545,433L543,426L550,429L548,439L546,441L538,442L532,442L519,448L528,455L523,459L516,460L509,453L507,457L511,466L518,472L514,476L522,482L529,486L530,495L518,492L523,500L516,503L522,516L514,517L503,512L496,500L493,490L487,483L480,475L479,471L483,462L483,457L487,454L487,450L494,448L498,444L504,443L506,440Z"/><path d="M760,428L756,429L752,434L740,442L734,444L723,456L713,460L705,459L694,468L689,467L691,475L689,480L687,484L680,479L683,472L676,476L665,475L659,487L641,494L628,489L615,492L614,499L606,503L592,498L578,501L567,488L557,481L560,468L551,462L561,444L579,440L581,427L603,423L614,410L626,402L644,395L667,399L685,399L696,391L706,389L716,376L727,370L741,372L745,377L747,384L757,384L760,385L760,390L760,390L757,393L760,397L760,428ZM543,426L554,418L564,418L567,424L578,426L577,431L563,435L559,440L551,451L546,444L546,441L548,439L550,429Z"/><path d="M487,450L487,454L483,457L483,462L479,471L476,470L476,466L469,462L467,454L467,444L468,439L466,437L464,432L468,423L469,426L472,425L475,428L478,430L480,435L479,441L481,447Z"/><path d="M428,368L432,369L440,375L450,378L453,375L456,381L460,385L457,391L452,388L444,389L434,387L429,388L427,391L423,388L421,394L427,401L430,406L435,411L440,414L444,420L455,425L454,428L443,423L436,418L425,414L415,403L417,402L412,396L412,391L405,388L401,395L398,390L398,385L399,384L406,385L408,382L412,384L416,385L416,380L420,378L420,372Z"/><path d="M355,353L355,356L354,359L358,362L364,363L363,369L358,372L350,370L347,376L342,376L341,373L334,378L329,379L325,375L322,368L316,370L317,363L325,355L325,351L330,353L333,350L342,351L344,348Z"/><path d="M321,311L323,315L322,321L319,321L317,320L319,311Z"/><path d="M323,301L321,311L319,311L317,320L309,312L304,313L298,305L294,298L290,297L289,292L297,290L304,292L313,289L318,297Z"/><path d="M334,260L335,266L332,279L329,285L323,285L323,301L318,297L313,289L304,292L297,290L302,286L313,265L326,259Z"/><path d="M139,405L144,403L149,402L150,410L157,412L159,410L165,413L167,421L160,424L157,436L155,437L152,444L147,444L149,455L143,464L146,469L143,473L137,478L136,483L130,485L125,481L118,481L123,470L125,460L120,457L119,451L123,441L129,437L132,431L137,423L139,416L138,410Z"/><path d="M136,483L137,478L143,473L146,469L143,464L149,455L147,444L152,444L155,437L157,436L160,424L167,421L165,413L159,410L157,412L150,410L149,402L144,403L139,405L143,395L140,387L159,381L171,387L186,391L197,396L206,397L224,402L227,408L247,419L251,416L263,425L277,425L276,434L264,443L248,444L247,449L238,457L231,468L234,478L226,484L222,493L212,495L201,505L185,502L173,499L164,503L158,507L152,505L148,498L147,488Z"/><path d="M217,235L216,246L206,258L187,262L175,256L187,243L187,226L202,218L210,213L210,222L206,229L211,230Z"/><path d="M364,363L370,365L371,362L382,360L384,365L399,369L398,376L401,383L392,381L384,386L384,394L383,399L387,406L397,414L403,427L416,439L426,438L429,442L425,445L436,450L445,454L456,461L458,464L456,470L449,463L438,461L434,472L443,477L442,485L437,487L431,501L426,502L426,497L428,489L430,485L425,476L421,469L416,467L412,460L404,458L399,451L390,451L381,444L371,433L363,424L360,409L354,407L346,401L340,403L333,410L329,411L330,404L325,402L323,390L327,385L324,379L325,375L329,379L334,378L341,373L342,376L347,376L350,370L358,372L363,369ZM414,499L424,497L420,510L422,515L420,523L410,517L403,516L385,508L387,500L402,501ZM341,455L347,451L354,462L352,483L346,482L341,487L336,482L337,463L335,454Z"/><path d="M362,239L356,241L349,238L346,230L347,214L349,210L351,206L359,205L362,201L368,197L368,205L365,209L366,214L371,216L369,222L366,220L360,231ZM383,222L386,229L381,242L372,233L371,227Z"/><path d="M217,235L211,230L206,229L210,222L210,213L218,215L225,226ZM243,249L243,249L246,240L242,230L242,229L232,224L231,220L236,214L234,209L228,215L231,201L229,192L236,177L245,167L251,169L261,170L248,185L257,184L266,186L261,198L251,210L260,213L260,215L264,234L270,237L272,255L274,262L285,266L282,276L277,280L279,288L269,295L257,292L240,293L236,290L228,295L219,291L211,296L207,291L225,279L234,278L234,278L220,272L219,265L229,263L226,254L230,244Z"/><path d="M216,30L211,39L214,52L202,60L180,62L173,62L166,56L151,43L160,40L150,27L162,30L164,25L154,16L162,9L172,11L176,25L189,22L194,29L207,25Z"/><path d="M760,366L758,366L754,363L756,360L760,360L760,366Z"/><path d="M760,360L756,360L754,363L741,372L727,370L716,376L715,369L708,361L700,358L693,359L687,356L687,356L688,354L698,352L714,348L731,348L734,350L740,345L751,343L757,347L760,347L760,360Z"/><path d="M399,369L408,370L413,366L422,365L424,362L426,363L428,368L420,372L420,378L416,380L416,385L412,384L408,382L406,385L399,384L401,383L398,376Z"/><path d="M474,0L474,8L474,8L476,20L487,28L485,41L496,56L495,70L504,80L504,91L517,98L516,107L512,117L501,140L488,144L476,152L464,158L458,150L450,146L450,131L445,117L447,108L452,97L464,78L468,74L466,67L456,62L453,56L449,32L438,23L429,16L432,11L440,19L447,17L454,19L458,11L458,0L474,0Z"/><path d="M486,322L484,326L483,332L481,334L469,331L466,332L464,336L460,339L458,338L454,341L450,342L449,345L441,347L437,346L431,342L430,337L430,335L432,332L436,332L439,330L440,328L441,327L442,324L444,323L445,320L448,320L449,321L453,318L458,323L464,319L469,320L476,317Z"/><path d="M409,298L414,302L421,303L421,308L426,311L428,306L434,308L436,312L443,313L448,320L445,320L444,323L442,324L441,327L440,328L439,330L436,332L432,332L430,335L426,333L421,334L413,329L409,331L404,337L396,332L390,326L385,322L384,316L382,311L389,308L393,304L400,301L402,298L405,300Z"/><path d="M648,508L651,508L654,506L656,505L657,506L658,508L658,507L660,507L662,505L664,505L665,506L654,516L647,516L642,511Z"/><path d="M47,600L53,597L61,595L76,586L79,565L88,554L93,546L104,538L119,535L131,531L143,517L150,509L159,511L165,519L177,521L190,527L196,529L196,529L198,540L197,549L199,567L202,571L198,577L180,576L172,581L164,580L161,592L143,595L138,600L47,600Z"/><path d="M560,600L559,597L562,588L580,585L594,586L609,588L616,589L625,581L630,575L641,571L651,570L657,577L659,571L671,571L681,569L687,563L702,583L704,587L702,594L703,600L675,600L675,600L668,592L667,594L672,600L560,600Z"/><path d="M363,600L365,597L372,592L373,580L389,585L395,584L406,586L425,593L428,600L363,600ZM490,600L488,596L492,588L501,579L510,576L528,576L534,583L539,582L544,584L558,584L562,588L559,597L560,600L490,600Z"/><path d="M455,425L444,420L440,414L435,411L430,406L427,401L421,394L423,388L427,391L429,388L434,387L444,389L452,388L457,391L461,390L459,397L465,403L464,410L461,411L459,413L456,417Z"/><path d="M499,425L506,429L508,440L506,440L504,443L498,444L494,448L487,450L481,447L479,441L480,435L481,435L481,432L488,429L490,428L494,426Z"/><path d="M453,375L461,370L468,370L474,375L476,380L483,383L485,389L492,393L495,389L498,390L496,393L498,395L496,399L498,405L504,411L500,416L499,421L501,423L499,425L494,426L490,428L490,427L491,425L492,421L490,421L487,418L485,418L484,416L481,415L480,413L478,414L477,419L474,421L475,419L470,417L466,416L464,414L461,411L464,410L465,403L459,397L461,390L457,391L460,385L456,381Z"/><path d="M472,425L469,426L468,423L464,432L466,437L463,436L459,431L454,428L455,425L456,417L459,413L461,411L464,414L466,416L470,417L475,419L474,421Z"/></g></g>
+    </svg>
+  </div>
+</section>
+
+<section class="fit" aria-labelledby="fit-h">
+  <div class="wrap fit-grid">
+    <h2 id="fit-h">Is this you<span class="stop">?</span></h2>
+    <ul class="fit-list">
+      <li>Sales still runs through the founder.</li>
+      <li>You're opening a new market and no one on the team has sold there.</li>
+      <li>You're a seller short, and the target didn't move.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="curve" id="how" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="curve-hd">
+      <h2 id="how-h">Learn it. Build it. Then sell on it<span class="stop">.</span></h2>
+    </div>
+    <div class="curve-stage">
+      <svg class="curve-svg" viewBox="0 0 600 200" aria-hidden="true">
+        <path class="bg" d="M 20 175 C 140 170, 200 130, 300 95 C 400 60, 460 30, 580 18"/>
+        <path class="fg" id="curvePath" d="M 20 175 C 140 170, 200 130, 300 95 C 400 60, 460 30, 580 18"/>
+        <circle class="ms" r="6" cx="93" cy="168"/>
+        <circle class="ms" r="6" cx="240" cy="119"/>
+        <circle class="ms" r="6" cx="385" cy="64"/>
+        <circle class="ms" r="6" cx="555" cy="20"/>
+        <circle class="you" id="curveDot" r="8" cx="20" cy="175"/>
+      </svg>
+      <ol class="steps">
+        <li class="step"><span class="n">1</span><b>Learn</b><span class="d">How you sell today.</span></li>
+        <li class="step"><span class="n">2</span><b>Build</b><span class="d">What's missing.</span></li>
+        <li class="step"><span class="n">3</span><b>Sell</b><span class="d">Alongside you.</span></li>
+        <li class="step"><span class="n">4</span><b>Lead</b><span class="d">So sales comes off your desk.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="routes" aria-labelledby="routes-h">
+  <div class="wrap">
+    <h2 id="routes-h">Two ways to add a seller<span class="stop">.</span></h2>
+    <div class="routes-grid">
+      <div class="route route-hire">
+        <h3>Hire a seller</h3>
+        <p>Recruit, ramp, hope it works.</p>
+      </div>
+      <div class="route route-vp dark">
+        <h3>Veerpoint<span class="stop">.</span></h3>
+        <p>An experienced seller inside your team, selling from the first month.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto dark">
+  <div class="wrap">
+    <p>A lot of good products never get a fair shot in front of the right buyers. <span class="soft">Veerpoint steps into that gap.</span></p>
+  </div>
+</section>
+
+<section class="faq" id="questions" aria-labelledby="faq-h">
+  <div class="wrap">
+    <h2 id="faq-h">The honest version, before the call<span class="stop">.</span></h2>
+    <dl class="faq-list">
+      <div class="faq-row"><dt>How is this different from an agency?</dt><dd>An agency works from outside and hands you meetings. A Veerpoint seller works inside your team, in your tools, and closes the deals.</dd></div>
+      <div class="faq-row"><dt>Who owns the CRM, the contacts and the playbook?</dt><dd>You do. Everything sits in your systems from day one.</dd></div>
+      <div class="faq-row"><dt>What do you need from us to start?</dt><dd>Time with whoever sells today, access to your tools (or a place to set them up), and someone who can join the calls that matter.</dd></div>
+      <div class="faq-row"><dt>Can we hire our own seller later?</dt><dd>Yes. Everything is written down, so a new hire starts from a working setup, not from zero.</dd></div>
+      <div class="faq-row"><dt>How is it paid?</dt><dd>A monthly retainer plus a share of what's closed. The rest is set on a call, around your market and deal size.</dd></div>
+      <div class="faq-row"><dt>Where do you work?</dt><dd>Across Europe and the US. Engagements run in English; other languages depend on the seller.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="principle dark">
+  <div class="wrap">
+    <h2>Veerpoint doesn't advise on sales. It closes<span class="stop">.</span></h2>
+  </div>
+</section>
+
+<section class="closing" id="book" aria-labelledby="book-h">
+  <div class="wrap closing-grid">
+    <div>
+      <h2 id="book-h">Two weeks from now, you've either started a hiring search, or your seller has started selling<span class="stop">.</span></h2>
+      <p class="lede">30 minutes, no deck. You explain how you sell today; you get an honest answer on whether Veerpoint can help.</p>
+    </div>
+    <div class="form-card">
+      <form id="bookForm" action="/api/book" method="post" novalidate>
+        <h3>Book a call</h3>
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" autocapitalize="off" spellcheck="false" required maxlength="200"></div>
+        <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization" required maxlength="160"></div>
+        <div class="field"><label for="f-phone">Phone <span class="opt">(optional)</span></label><input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="40"></div>
+        <div class="hp" aria-hidden="true"><label for="f-website">Website</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button type="submit" class="btn btn-accent" id="bookSubmit">Book a call</button>
+        <p class="form-error" id="bookError" role="alert" hidden></p>
+        <p class="form-note">Your details are used only to reply to you. <a href="/privacy.html">Privacy</a></p>
+      </form>
+      <div class="form-sent" id="bookSent" hidden tabindex="-1">
+        <h3>Request sent<span class="stop">.</span></h3>
+        <p>You'll get a reply at <strong id="bookSentEmail"></strong> within one working day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="/" class="wordmark">Veerpoint<span class="stop">.</span></a>
+    <nav aria-label="Footer">
+      <a href="mailto:hello@veerpoint.io">hello@veerpoint.io</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="/site.js?v=3" defer></script>
 </body>
 </html>

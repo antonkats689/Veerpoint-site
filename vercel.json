@@ -1,8 +1,22 @@
 {
-  "rewrites": [
-    { "source": "/quiz",             "destination": "/index.html" },
-    { "source": "/fit-quiz",         "destination": "/index.html" },
-    { "source": "/sales-diagnostic", "destination": "/index.html" },
-    { "source": "/calculator-quiz",  "destination": "/index.html" }
+  "redirects": [
+    { "source": "/about", "destination": "/", "permanent": false },
+    { "source": "/about.html", "destination": "/", "permanent": false },
+    { "source": "/pricing", "destination": "/", "permanent": false },
+    { "source": "/pricing.html", "destination": "/", "permanent": false },
+    { "source": "/how-it-works", "destination": "/", "permanent": false },
+    { "source": "/how-it-works.html", "destination": "/", "permanent": false },
+    { "source": "/calculator", "destination": "/", "permanent": false },
+    { "source": "/calculator.html", "destination": "/", "permanent": false },
+    { "source": "/index.old.html", "destination": "/", "permanent": false },
+    { "source": "/admin", "destination": "/", "permanent": false },
+    { "source": "/admin/:path*", "destination": "/", "permanent": false },
+    { "source": "/prompts/:path*", "destination": "/", "permanent": false },
+    { "source": "/img/:path*", "destination": "/", "permanent": false },
+    { "source": "/app.js", "destination": "/", "permanent": false },
+    { "source": "/quiz", "destination": "/", "permanent": false },
+    { "source": "/fit-quiz", "destination": "/", "permanent": false },
+    { "source": "/sales-diagnostic", "destination": "/", "permanent": false },
+    { "source": "/calculator-quiz", "destination": "/", "permanent": false }
   ]
 }
